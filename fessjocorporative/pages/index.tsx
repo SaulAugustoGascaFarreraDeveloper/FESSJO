@@ -16,6 +16,11 @@ const Home: NextPage = () => {
     visible: { opacity: 1, x: 0, transition: { duration: 1, delay: 0.5 } },
   };
 
+  const pVariants2 = {
+    hidden: { opacity: 0, x: -100 },
+    visible: { opacity: 1, x: 0, transition: { duration: 2, delay: 0.7 } },
+  };
+
   return (
     <>
       <Layout>
@@ -34,7 +39,31 @@ const Home: NextPage = () => {
                 initial="hidden"
                 animate="visible"
               >
-                ¡Somos líderes en...
+                  Contamos con equipos de inyección de aluminio
+        
+              </motion.p>
+              <motion.p
+                variants={pVariants}
+                initial="hidden"
+                animate="visible"
+              >
+                  
+                  Contamos con experiencia mayor a 40 años
+              </motion.p>
+              <br/>
+              <motion.h3
+                variants={h1Variants}
+                initial="hidden"
+                animate="visible"
+              >
+                Contamos con refacciones y partes para su maquinaria
+              </motion.h3>
+              <motion.p
+                variants={pVariants2}
+                initial="hidden"
+                animate="visible"
+              >
+               22222Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod purus at justo tincidunt, in interdum dolor vestibulum. Aenean vestibulum metus mauris, non dignissim velit finibus vitae. Sed pulvinar urna in nibh porta, vel fermentum sapien convallis. Nunc a purus ac odio sagittis iaculis. Fusce non feugiat lorem. Integer euismod tortor a magna viverra eleifend. Sed vehicula metus in elit luctus scelerisque. Cras quis erat a turpis finibus fringilla sed eget odio. Nam tempus dolor risus, eu fringilla velit viverra eget.
               </motion.p>
             </div>
           </div>

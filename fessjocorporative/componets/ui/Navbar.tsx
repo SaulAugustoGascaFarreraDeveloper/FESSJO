@@ -8,26 +8,26 @@ export const NavbarComponent = () => {
 
     <>
 
-        <Navbar bg="white" variant="light" expand="lg" className={`px-5  ${styles.nb}`}>
+        <Navbar style={{backgroundColor:'#25ADE1'}}  expand="lg" className={`px-5  ${styles.nb}`}>
         <Navbar.Brand href="/" className="mr-auto">
             <Image src="/static/img/Fessjo.png" alt="Logo" width={100} height={40} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbar-nav" />
-        <Navbar.Collapse id="navbar-nav" className={`justify-content-end ${styles.footer}`}>
-            <Nav>
-            <Nav.Link href="/who-we-are" className={`${styles.cn} ${styles.nb}`} style={{ color: '#0C0000', fontSize: '20px' }}>
+        <Navbar.Collapse  id="navbar-nav" className={`justify-content-end ${styles.footer}`}>
+            <Nav style={{backgroundColor:'#25ADE1'}}>
+            <Nav.Link href="/who-we-are" className={`${styles.cn} ${styles.nb}`} style={{ color: '#FFFFFF', fontSize: '20px' }}>
                 Quienes Somos
             </Nav.Link>
-            <Nav.Link  href="/services" className={`${styles.cn} ${styles.nb}`} style={{ color: '#0C0000', fontSize: '20px' }}>
+            <Nav.Link  href="/services" className={`${styles.cn} ${styles.nb}`} style={{ color: '#FFFFFF', fontSize: '20px' }}>
                 Servicios
             </Nav.Link>
-            <Nav.Link href="/contact-us" className={`${styles.cn} ${styles.nb}`} style={{ color: '#0C0000', fontSize: '20px' }}>
+            <Nav.Link href="/contact-us" className={`${styles.cn} ${styles.nb}`} style={{ color: '#FFFFFF', fontSize: '20px' }}>
                 Contactanos
             </Nav.Link>
             </Nav>
         </Navbar.Collapse>
         </Navbar>
-        <hr style={{borderBottom:'3px solid black'}} />
+        <hr style={{borderBottom:'5px solid white'}} />
 
     </>
    

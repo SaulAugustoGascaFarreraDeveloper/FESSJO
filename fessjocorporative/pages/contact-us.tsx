@@ -1,9 +1,115 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Form, Button, Col, Row } from 'react-bootstrap';
 import { Layout } from '../componets/layouts';
 import { motion } from 'framer-motion';
+import axios from 'axios'
+
+const estadosMexico = [
+  'Aguascalientes',
+  'Baja California',
+  'Baja California Sur',
+  'Campeche',
+  'Coahuila',
+  'Colima',
+  'Chiapas',
+  'Chihuahua',
+  'Ciudad de México',
+  'Durango',
+  'Guanajuato',
+  'Guerrero',
+  'Hidalgo',
+  'Jalisco',
+  'México',
+  'Michoacán',
+  'Morelos',
+  'Nayarit',
+  'Nuevo León',
+  'Oaxaca',
+  'Puebla',
+  'Querétaro',
+  'Quintana Roo',
+  'San Luis Potosí',
+  'Sinaloa',
+  'Sonora',
+  'Tabasco',
+  'Tamaulipas',
+  'Tlaxcala',
+  'Veracruz',
+  'Yucatán',
+  'Zacatecas'
+]
+
+
 
 const ContactUs = () => {
+
+  const [client,setClient] = useState({
+    nombre:'',
+    apellidoPaterno: '',
+    apellidoMaterno: '',
+    cargo:'',
+    nombreEmpresa:'',
+    calle:'',
+    numero:'',
+    colonia:'',
+    estado: '',
+    ciudad:'',
+    pais:'',
+    telefono:'',
+    correoElectronico:'',
+    descripcion:''
+  })
+
+
+  const handleChange = (e: any) => {
+    const { name, value } = e.target;
+    setClient((prevClient) => ({
+      ...prevClient,
+      [name]: value
+    }))
+  }
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault()
+
+    try{
+
+      const response = await axios.post("/api/posts",client)
+
+      if(response.status === 201)
+      {
+        console.log("Cliente guardado exitosamente --> ",client);
+
+      }else {
+        console.error('Error al guardar el cliente en la base de datos');
+      }
+
+    }catch(error)
+    {
+      console.log("Error al guadar cliente en la base de datos --> ",error)
+    }
+
+
+    setClient({
+      nombre:'',
+      apellidoPaterno: '',
+      apellidoMaterno: '',
+      cargo:'',
+      nombreEmpresa:'',
+      calle:'',
+      numero:'',
+      colonia:'',
+      estado: '',
+      ciudad:'',
+      pais:'',
+      telefono:'',
+      correoElectronico:'',
+      descripcion:''
+    })
+
+  }
+
+
   const formVariants = {
     hidden: {
       opacity: 0,
@@ -22,84 +128,91 @@ const ContactUs = () => {
 
   return (
     <Layout>
+
+      <h3 className='container'>Agrega Tus Datos para que nosotros nos contactemos con ustedes</h3>
+
       <motion.div
         className="container"
         initial="hidden"
         animate="visible"
         variants={formVariants}
       >
-        <Form>
+
+      
+
+        <Form onSubmit={handleSubmit}>
           <Row>
-            <Col xs={12} md={4} controlId="firstName">
+            <Col xs={12} md={4} controlId="nombre">
               <Form.Label>Nombre</Form.Label>
-              <Form.Control type="text" name="firstName" />
+              <Form.Control type="text" name="nombre" onChange={handleChange} value={client.nombre} />
             </Col>
-            <Col xs={12} md={4} controlId="lastName">
+            <Col xs={12} md={4} controlId="apellidoPaterno">
               <Form.Label>Apellido Paterno</Form.Label>
-              <Form.Control type="text" name="lastName" />
+              <Form.Control type="text" name="apellidoPaterno" onChange={handleChange} value={client.apellidoPaterno} />
             </Col>
-            <Col xs={12} md={4} controlId="paternalLastName">
+            <Col xs={12} md={4} controlId="apellidoMaterno">
               <Form.Label>Apellido Materno</Form.Label>
-              <Form.Control type="text" name="paternalLastName" />
+              <Form.Control type="text" name="apellidoMaterno" onChange={handleChange} value={client.apellidoMaterno} />
             </Col>
           </Row>
           <Row>
-            <Col xs={12} md={6} controlId="position">
+            <Col xs={12} md={6} controlId="cargo">
               <Form.Label>Cargo</Form.Label>
-              <Form.Control type="text" name="position" />
+              <Form.Control type="text" name="cargo" onChange={handleChange} value={client.cargo} />
             </Col>
-            <Col xs={12} md={6} controlId="companyName">
+            <Col xs={12} md={6} controlId="nombreEmpresa">
               <Form.Label>Nombre de la empresa</Form.Label>
-              <Form.Control type="text" name="companyName" />
+              <Form.Control type="text" name="nombreEmpresa" onChange={handleChange} value={client.nombreEmpresa} />
             </Col>
           </Row>
           <Row>
-            <Col xs={12} md={6} controlId="street">
+            <Col xs={12} md={6} controlId="calle">
               <Form.Label>Calle</Form.Label>
-              <Form.Control type="text" name="street" />
+              <Form.Control type="text" name="calle" onChange={handleChange} value={client.calle} />
             </Col>
-            <Col xs={12} md={6} controlId="number">
+            <Col xs={12} md={6} controlId="numero">
               <Form.Label>Número</Form.Label>
-              <Form.Control type="text" name="number" />
+              <Form.Control type="text" name="numero" onChange={handleChange} value={client.numero} />
             </Col>
           </Row>
           <Row>
-            <Col xs={12} md={4} controlId="neighborhood">
+            <Col xs={12} md={4} controlId="colonia">
               <Form.Label>Colonia</Form.Label>
-              <Form.Control type="text" name="neighborhood" />
+              <Form.Control type="text" name="colonia" onChange={handleChange} value={client.colonia} />
             </Col>
-            <Col xs={12} md={4} controlId="state">
+            <Col xs={12} md={4} controlId="estado">
               <Form.Label>Estado</Form.Label>
-              <Form.Control as="select" name="state">
-                <option>Seleccionar Estado</option>
-                <option>Estado 1</option>
-                <option>Estado 2</option>
-                <option>Estado 3</option>
-                {/* Agrega aquí más opciones de estados */}
+              <Form.Control as="select" name="estado" onChange={handleChange} value={client.estado}>
+                <option value="">Seleccionar Estado</option>
+                {estadosMexico.map((estado) => (
+                  <option key={estado} value={estado}>
+                    {estado}
+                  </option>
+                ))}
               </Form.Control>
             </Col>
-            <Col xs={12} md={4} controlId="city">
-              <Form.Label>Municipio</Form.Label>
-              <Form.Control type="text" name="city" />
+            <Col xs={12} md={4} controlId="ciudad">
+              <Form.Label>Ciudad / Municipio</Form.Label>
+              <Form.Control type="text" name="ciudad" onChange={handleChange} value={client.ciudad} />
             </Col>
           </Row>
           <Row>
-            <Col xs={12} md={4} controlId="country">
+            <Col xs={12} md={4} controlId="pais">
               <Form.Label>País</Form.Label>
-              <Form.Control type="text" name="country" />
+              <Form.Control type="text" name="pais" onChange={handleChange} value={client.pais} />
             </Col>
-            <Col xs={12} md={4} controlId="phone">
+            <Col xs={12} md={4} controlId="telefono">
               <Form.Label>Teléfono</Form.Label>
-              <Form.Control type="text" name="phone" />
+              <Form.Control type="text" name="telefono" onChange={handleChange} value={client.telefono} />
             </Col>
-            <Col xs={12} md={4} controlId="email">
+            <Col xs={12} md={4} controlId="correoElectronico">
               <Form.Label>Correo Electrónico</Form.Label>
-              <Form.Control type="email" name="email" />
+              <Form.Control type="email" name="correoElectronico" onChange={handleChange} value={client.correoElectronico} />
             </Col>
           </Row>
-          <Form.Group controlId="description">
+          <Form.Group controlId="descripcion">
             <Form.Label>Descripción</Form.Label>
-            <Form.Control as="textarea" rows={3} name="description" />
+            <Form.Control as="textarea" rows={3} name="descripcion" onChange={handleChange} value={client.descripcion} />
           </Form.Group>
           <br/>
           <Button variant="dark" type="submit">

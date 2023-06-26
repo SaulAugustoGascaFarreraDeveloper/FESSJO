@@ -11,3 +11,19 @@
 .cn:hover {
   background-color: #aba9a9; /* Cambia este valor al color deseado */
 }
+
+.centeredContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.centeredText {
+  text-align: center;
+  font-size: 5rem; /* Puedes ajustar el tamaño de la fuente según tus necesidades */
+}
+
+.highlightText {
+  font-size: 4rem; /* Ajusta el tamaño de la fuente según tus necesidades */
+}
