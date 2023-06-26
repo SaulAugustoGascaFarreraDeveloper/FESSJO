@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+
+.nb .cn {
+  font-family: 'Roboto Mono', monospace;
+  color: #ff0000;
+}
+
+.cn:hover {
+  background-color: #c8c4c4;
+  border-bottom: 3px solid #000000;
+ 
+}
+
+/* body{
+  background-color: rgb(169, 172, 165);
+} */
