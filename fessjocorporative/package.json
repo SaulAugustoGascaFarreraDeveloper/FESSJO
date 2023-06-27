@@ -21,13 +21,23 @@
     "next": "13.4.7",
     "react": "18.2.0",
     "react-bootstrap": "^2.8.0",
+    "react-bootstrap-sweetalert": "^5.2.0",
     "react-dom": "18.2.0",
-    "react-spring": "^9.7.1"
+    "react-hot-toast": "^2.4.1",
+    "react-icons": "^4.10.1",
+    "react-notifications-component": "^4.0.1",
+    "react-responsive-carousel": "^3.2.23",
+    "react-spring": "^9.7.2",
+    "react-transition-group": "^4.4.5",
+    "sweetalert": "^2.1.2",
+    "sweetalert2": "^11.7.12"
   },
   "devDependencies": {
     "@types/node": "20.3.1",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
+    "@types/react-notify-toast": "^0.5.3",
+    "@types/three": "^0.152.1",
     "eslint": "8.43.0",
     "eslint-config-next": "13.4.7",
     "typescript": "5.1.3"

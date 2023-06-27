@@ -16,13 +16,13 @@ export const NavbarComponent = () => {
         <Navbar.Collapse  id="navbar-nav" className={`justify-content-end ${styles.footer}`}>
             <Nav style={{backgroundColor:'#25ADE1'}}>
             <Nav.Link href="/who-we-are" className={`${styles.cn} ${styles.nb}`} style={{ color: '#FFFFFF', fontSize: '20px' }}>
-                Quienes Somos
+                Quiénes somos
             </Nav.Link>
             <Nav.Link  href="/services" className={`${styles.cn} ${styles.nb}`} style={{ color: '#FFFFFF', fontSize: '20px' }}>
                 Servicios
             </Nav.Link>
             <Nav.Link href="/contact-us" className={`${styles.cn} ${styles.nb}`} style={{ color: '#FFFFFF', fontSize: '20px' }}>
-                Contactanos
+                Contáctanos
             </Nav.Link>
             </Nav>
         </Navbar.Collapse>
