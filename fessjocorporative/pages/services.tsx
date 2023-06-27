@@ -129,74 +129,7 @@ const Services = () => {
       </div>
 
 
-    {/* <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', padding: '20px' }}>
-        <div style={{ textAlign: 'center', width: '400px', margin: '10px' }}>
-          
-          <h2 style={{ marginBottom: '10px' }}>Partes y Refacciones</h2>
-          <p style={{ textAlign: 'justify', marginLeft: '10px' }}>
-          En <strong>FESSJO </strong>, nos especializamos en ofrecer una amplia gama de partes y refacciones para maquinaria industrial.
-          </p>
-          <p style={{ textAlign: 'left', marginLeft: '10px' }}>
-              Algunos de nuestros servicios incluyen:
-            </p>
-            <ul style={{ textAlign: 'left', marginLeft: '10px' }}>
-              <li>Suministro de partes originales y compatibles</li>
-              <li>Asesoramiento técnico especializado</li>
-              <li>Envío rápido y seguro a nivel nacional</li>
-              <li>Precios competitivos </li>
-            </ul>
-
-          <div style={{ overflow: 'hidden' }}>
-            <motion.img
-              src="/static/img/vision1.jpg"
-              alt="Imagen Misión"
-              style={{ width: '100%', height: 'auto', cursor: 'zoom-in', marginBottom: '10px' }}
-              whileHover="zoom"
-              variants={imageVariants}
-            />
-          </div>
-
-          
-        </div>
-
-
-
-        <div style={{ textAlign: 'center', width: '400px', margin: '10px' }}>
-          
-          <h2 style={{ marginBottom: '10px' }}>Reparación y Servicio</h2>
-          <p style={{ textAlign: 'justify', marginLeft: '10px' }}>
-          En <strong>FESSJO </strong>, ofrecemos servicios de reparación y mantenimiento de maquinaria para fundición.
-          </p>
-          <p style={{ textAlign: 'left', marginLeft: '10px' }}>
-              Algunos de nuestros servicios incluyen:
-            </p>
-            <ul style={{ textAlign: 'left', marginLeft: '10px' }}>
-              <li>Diagnóstico y solución de problemas</li>
-              <li>Reparación de equipos,reconstrucción, overhaul y componentes</li>
-              <li>Mantenimiento preventivo</li>
-              <li>Actualizaciones y mejoras</li>
-              <li>Asesoramiento técnico y soporte</li>
-            </ul>
-
-          <div style={{ overflow: 'hidden' }}>
-            <motion.img
-              src="/static/img/vision1.jpg"
-              alt="Imagen Misión"
-              style={{ width: '100%', height: 'auto', cursor: 'zoom-in', marginBottom: '10px' }}
-              whileHover="zoom"
-              variants={imageVariants}
-            />
-          </div>
-
-          
-        </div>
-       
-    </div> */}
-
-
-     
-
-       
+      
        
     
     </Layout>

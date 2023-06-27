@@ -9,10 +9,6 @@ const WhoWeAre = () => {
     visible: { opacity: 1, y: 0, transition: { duration: 1 } },
   };
 
-  const h1Variants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, x: 5, transition: { duration: 0.5 } },
-  };
 
   const imageVariants = {
     zoom: { scale: 1.1 },
@@ -20,16 +16,7 @@ const WhoWeAre = () => {
 
   return (
     <Layout>
-      {/* <motion.section
-        variants={sectionVariants}
-        initial="hidden"
-        animate="visible"
-        style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}
-      >
-        <motion.h1 variants={h1Variants} initial="hidden" animate="visible">
-          Acerca de Nosotros
-        </motion.h1>
-      </motion.section> */}
+     
 
       <h1 style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }} className={`px-5  ${styles.gn}`} >Acerca de Nosotros</h1>
 

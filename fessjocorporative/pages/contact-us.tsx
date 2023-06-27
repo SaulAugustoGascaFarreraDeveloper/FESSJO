@@ -3,8 +3,6 @@ import { Form, Button, Col, Row,Alert  } from 'react-bootstrap';
 import { Layout } from '../componets/layouts';
 import { motion } from 'framer-motion';
 import axios from 'axios'
-import { FaInfoCircle } from 'react-icons/fa';
-import SweetAlert from 'react-bootstrap-sweetalert';
 import Swal from 'sweetalert2';
 
 
@@ -97,13 +95,14 @@ const ContactUs = () => {
 
       }else {
         console.error('Error al guardar el cliente en la base de datos');
+        alert("No se pudo guardar la informacion")
         
       }
 
     }catch(error)
     {
       console.log("Error al guadar cliente en la base de datos --> ",error)
-     
+      alert(`No se pudo guardar la informacion --> ${error}`)
     }
 
 
