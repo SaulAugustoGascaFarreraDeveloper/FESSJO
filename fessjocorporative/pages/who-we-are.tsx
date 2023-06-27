@@ -41,7 +41,7 @@ const WhoWeAre = () => {
             <motion.img
               src="/static/img/browser.png"
               alt="Imagen Visión"
-              style={{ width: '100%', height: 'auto', cursor: 'zoom-in', marginBottom: '10px' }}
+              style={{ width: '90%', height: 'auto', cursor: 'zoom-in', marginBottom: '10px' }}
               whileHover="zoom"
               variants={imageVariants}
             />
@@ -54,9 +54,9 @@ const WhoWeAre = () => {
         <div style={{ textAlign: 'center', width: '400px', margin: '10px' }}>
           <div style={{ overflow: 'hidden' }}>
             <motion.img
-              src="/static/img/VALORES.png"
+              src="/static/img/maquina5.png"
               alt="Imagen Valores"
-              style={{ width: '100%', height: 'auto', cursor: 'zoom-in', marginBottom: '10px' }}
+              style={{ width: '75%', height: 'auto', cursor: 'zoom-in', marginBottom: '10px' }}
               whileHover="zoom"
               variants={imageVariants}
             />
@@ -74,7 +74,7 @@ const WhoWeAre = () => {
             <div style={{ display: 'flex', color: '#000000', padding: '20px', flexDirection: 'column-reverse' }}>
               <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <img
-                  src="/static/img/Mision1.png"
+                  src="/static/img/maquina6.png"
                   alt="Imagen"
                   style={{ width: '80%', height: 'auto' }}
                 />

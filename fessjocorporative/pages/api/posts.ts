@@ -1,55 +1,64 @@
-import Client from "../../db/models/ClientModel";
-import dbConnect from "../../db/models/dbconnection";
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';
 import { MongoClient } from 'mongodb';
+import dbConnect from "../../db/models/dbconnection";
+import dotenv from 'dotenv';
 
 dotenv.config({ path: '.env.local' });
 
-const MONGODB_URI = process.env.MONGODB_URI ?? "";
-
-// Conectarse a la base de datos
+// Establecer la conexión a la base de datos
 dbConnect();
+
+const MONGODB_URI = process.env.MONGODB_URI ?? "";
+const client = new MongoClient(MONGODB_URI, {
+  //useNewUrlParser: true,
+  //useUnifiedTopology: true,
+});
+
+// Función auxiliar para conectar y desconectar el cliente de MongoDB
+async function connectDB() {
+  if (!client.connect()) {
+    await client.connect();
+  }
+  return client.db("FESSJO");
+}
 
 const handler = async (req: any, res: any) => {
   const { method } = req;
 
   switch (method) {
+    case "GET":
+      try {
+        const db = await connectDB();
+        const clients = await db.collection('Clientes').find().toArray();
+        res.status(200).json({ success: true, data: clients });
+      } catch (error: any) {
+        res.status(500).json({ success: false, error: error.message });
+      }
+      break;
+
     case "POST":
       try {
-
         const clientData = {
-            nombre: req.body.nombre,
-            apellidoPaterno: req.body.apellidoPaterno,
-            apellidoMaterno: req.body.apellidoMaterno,
-            cargo: req.body.cargo,
-            nombreEmpresa: req.body.nombreEmpresa,
-            calle: req.body.calle,
-            numero: req.body.numero,
-            colonia: req.body.colonia,
-            estado: req.body.estado,
-            ciudad: req.body.ciudad,
-            pais: req.body.pais,
-            telefono: req.body.telefono,
-            correoElectronico: req.body.correoElectronico,
-            descripcion: req.body.descripcion,
-          };
+          nombre: req.body.nombre,
+          apellidoPaterno: req.body.apellidoPaterno,
+          apellidoMaterno: req.body.apellidoMaterno,
+          cargo: req.body.cargo,
+          nombreEmpresa: req.body.nombreEmpresa,
+          calle: req.body.calle,
+          numero: req.body.numero,
+          colonia: req.body.colonia,
+          estado: req.body.estado,
+          ciudad: req.body.ciudad,
+          pais: req.body.pais,
+          telefono: req.body.telefono,
+          correoElectronico: req.body.correoElectronico,
+          descripcion: req.body.descripcion,
+        };
 
-          const client = await MongoClient.connect(MONGODB_URI, {
-            //useNewUrlParser: true,
-            //useUnifiedTopology: true,
-            serverSelectionTimeoutMS: 5000 // Opcional: tiempo de espera para la selección del servidor en milisegundos
-          });
+        const db = await connectDB();
+        const result = await db.collection('Clientes').insertOne(clientData);
 
-          const db = client.db("FESSJO")
-          const result = await db.collection('Clientes').insertOne(clientData);
-
-            client.close(); // Cerrar la conexión a la base de datos
-
-        //const client = await Client.create(req.body);
-        //res.status(201).json({ success: true, data: client });
-            const insertedId = result.insertedId; // Castear a any para evitar el error
-            res.status(201).json({ success: true, insertedId });
+        const insertedId = result.insertedId;
+        res.status(201).json({ success: true, insertedId });
       } catch (error: any) {
         res.status(500).json({ success: false, error: error.message });
       }
